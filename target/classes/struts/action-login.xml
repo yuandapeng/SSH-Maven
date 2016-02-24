@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="com-action-LoginAction" extends="struts-default" namespace="/">
+ <action name="index" class="com.action.LoginAction" method="index">
+ 	<result type="freemarker" name="success">/html/index.ftl</result>
+ </action>
+ <action name="login" class="com.action.LoginAction" method="login">
+ </action>
+ <action name="angular" class="com.action.LoginAction" method="angular">
+    <result  name="success" type="freemarker" >/html/angular.ftl</result>
+ </action>
+ <action name="getPerson" class="com.action.LoginAction" method="getPerson">
+ </action>
+ 
+  <action name="makeCode" class="com.action.LoginAction" method="makeCode">
+ </action>
+ <action name="qrcodeLogin" class="com.action.LoginAction" method="qrcodeLogin">
+    <result  name="success" type="freemarker" >/html/angular.ftl</result>
+    <result  name="error" type="freemarker" >/html/error.ftl</result>
+ </action>
+  <action name="checkLogin" class="com.action.LoginAction" method="checkLogin">
+  </action>
+  <action name="isLive" class="com.action.LoginAction" method="isLive">
+  </action>
+  <action name="saveUser" class="com.action.LoginAction" method="saveUser">
+  </action>
+</package>
+
+</struts>    

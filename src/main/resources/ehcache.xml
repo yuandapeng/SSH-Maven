@@ -1,0 +1,38 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.sf.net/ehcache.xsd">
+	<diskStore path="java.io.tmpdir/cn" />
+	<cacheManagerPeerProviderFactory
+		class="net.sf.ehcache.distribution.jgroups.JGroupsCacheManagerPeerProviderFactory"
+		properties="channelName=oa" propertySeparator="::" />
+
+	<!-- <cacheManagerPeerProviderFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory" 
+		properties="peerDiscovery=automatic,multicastGroupAddress=230.110.110.1,multicastGroupPort=4446,timeToLive=1" 
+		/> <cacheManagerPeerListenerFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory" 
+		/> -->
+	<defaultCache maxElementsInMemory="100" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="300">
+		<cacheEventListenerFactory
+			class="net.sf.ehcache.distribution.jgroups.JGroupsCacheReplicatorFactory"
+			properties="replicateAsynchronously=false, replicatePuts=true,
+						replicateUpdates=true, replicateUpdatesViaCopy=false, replicateRemovals=true" />
+	</defaultCache>
+
+	<cache name="kjj_order" maxElementsInMemory="300" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="300">
+		<cacheEventListenerFactory
+			class="net.sf.ehcache.distribution.jgroups.JGroupsCacheReplicatorFactory"
+			properties="replicateAsynchronously=false, replicatePuts=true,
+						replicateUpdates=true, replicateUpdatesViaCopy=false, replicateRemovals=true" />
+	</cache>
+	<cache name="kjj_order_mapping" maxElementsInMemory="300"
+		eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="300">
+		<cacheEventListenerFactory
+			class="net.sf.ehcache.distribution.jgroups.JGroupsCacheReplicatorFactory"
+			properties="replicateAsynchronously=false, replicatePuts=true,
+						replicateUpdates=true, replicateUpdatesViaCopy=false, replicateRemovals=true" />
+	</cache>
+
+
+
+</ehcache>
+
